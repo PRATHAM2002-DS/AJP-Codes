@@ -1,0 +1,40 @@
+package Gui;
+import java.awt.*;
+import java.awt.event.*;
+
+public class AwtGui extends WindowAdapter implements ActionListener {
+	Frame f;
+	Label l;
+	Button b;
+	AwtGui(){
+		f= new Frame();
+		f.setSize(200,200);
+		f.setLayout(new FlowLayout());
+		init();
+		add_comp();
+		f.setVisible(true);
+	}
+	public void init() {
+		l= new Label();
+		b= new Button();
+	}
+	public void add_comp() {
+		f.add(l);
+		f.add(b);
+		f.addWindowListener(this);
+		b.addActionListener(this);
+	}
+	public void windowClosing(WindowEvent e) {
+		f.dispose();
+	}
+	public void actionPerformed(ActionEvent e) {
+		f.dispose();
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new AwtGui();
+
+	}
+
+}

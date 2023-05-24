@@ -1,0 +1,48 @@
+package test;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Test extends WindowAdapter implements KeyListener {
+	Frame f;
+	Label l;
+	TextField t;
+	Test(){
+		f= new Frame();
+		f.setSize(200,200);
+		f.setLayout(null);
+		init();
+		add_comp();
+		f.setVisible(true);
+	}
+	public void init() {
+		l= new Label("LABEL");
+		t= new TextField();
+	}
+	public void add_comp() {
+		l.setBounds(50,50,50,50);
+		f.add(l);
+		t.setBounds(200,250,40,40);
+		f.add(t);
+	    f.addWindowListener(this);
+		t.addKeyListener(this);
+	}
+	public void windowClosing(WindowEvent e) {
+		f.dispose();
+	}
+	public void keyTyped(KeyEvent e) {
+		l.setText("Key Typed");
+	}
+	public void keyPressed(KeyEvent e) {
+		l.setText("Key Pressed");;
+	}
+	public void keyReleased(KeyEvent e) {
+		l.setText("Key Released");
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new Test();
+
+	}
+
+}

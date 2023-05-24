@@ -1,0 +1,14 @@
+import java.rmi.registry.*;
+import java.util.*;
+public class Server {
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+        Registry registry =  LocateRegistry.createRegistry(6000);
+        PrintC obj = new PrintC();
+        registry.bind("SHOWMSG", obj);
+        System.out.println("Server Started");
+        
+        
+	}
+       
+}
